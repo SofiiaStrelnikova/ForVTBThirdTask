@@ -126,13 +126,11 @@ public class TestsFakeAPI {
         int userIdInt = Integer.parseInt(userId);
         UserNameUpdater userNameUpdater = new UserNameUpdater("Abacaba");
 
-        Response response =
-                given()
-                        .spec(requestSpec)
-                        .basePath(EndPoints.users + '/' + userIdInt)
-                        .body(userNameUpdater)
-                        .put();
-        response
+        given()
+                .spec(requestSpec)
+                .basePath(EndPoints.users + '/' + userIdInt)
+                .body(userNameUpdater)
+                .put()
                 .then()
                 .log()
                 .all()
